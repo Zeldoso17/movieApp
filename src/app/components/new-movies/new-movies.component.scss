@@ -1,0 +1,21 @@
+h4{
+    margin: 10px;
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contenedor{
+    display: block;
+    height: 195px;
+    
+    .imagen{
+        width:100% !important;  
+        height : 100% !important;  
+        max-width: 300px !important;  //any size
+        max-height: 550px !important; //any size
+    }
+
+    .tituloMovie{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}

@@ -1,0 +1,16 @@
+<ion-content>
+  <h4>En Cartelera</h4>
+  <ion-slides [options]="moviesSlideOpt">
+      <ion-slide (click)="openDetailMovie(movie.id)" *ngFor="let movie of nowPlayingMovies">
+          <div class="contenedor">
+              <img class="imagen" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="{{ movie.title }}">
+          </div>
+      </ion-slide>
+      <ion-refresher slot="fixed">
+        <ion-refresher-content
+          pullingIcon="refresh-outline"
+          pullingText="Pull to refresh">
+        </ion-refresher-content>
+      </ion-refresher>
+  </ion-slides>
+</ion-content>

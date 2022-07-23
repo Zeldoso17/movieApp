@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>movieDetail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="backdrop">
+    <img src="https://image.tmdb.org/t/p/original{{infoMovie.backdrop_path}}" alt="">
+  </div>
+
+  <div class="poster-rating">
+    <div class="poster">
+      <img src="https://image.tmdb.org/t/p/original{{infoMovie.poster_path}}" alt="">
+    </div>
+
+    <div class="rating-votes">
+      <div class="rating">
+        <div class="info">
+          <ion-icon class="like" name="thumbs-up-sharp"></ion-icon>
+          <p class="name">Rating</p>
+          <p class="numeros">{{ ratingMovie }}</p>
+        </div>
+      </div>
+
+      <div class="votes">
+        <div class="info">
+          <ion-icon class="people" name="people"></ion-icon>
+          <p class="name">Votos</p>
+          <p class="numeros">{{ infoMovie.vote_count }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview">
+    <p>{{ infoMovie.overview ? infoMovie.overview : 'NO HAY SIPNOSIS' }}</p>
+  </div>
+
+  <div class="genres">
+    <ion-chip *ngFor="let genre of infoMovie.genres" color="primary">
+      <ion-label>{{ genre.name }}</ion-label>
+    </ion-chip>
+  </div>
+
+
+  <div class="contenedor">
+    <ion-slides class="actor" [options]="moviesSlideOpt">
+      <ion-slide class="slide" *ngFor="let actor of cast">
+        <ion-card class="card">
+          <img src="https://image.tmdb.org/t/p/original{{actor.profile_path}}" alt="{{ actor.name }}">
+          <ion-card-header class="texto">
+            <ion-card-subtitle class="sub">{{ actor.name }}</ion-card-subtitle>
+            <ion-card-title class="titulo">{{ actor.character }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+</ion-content>

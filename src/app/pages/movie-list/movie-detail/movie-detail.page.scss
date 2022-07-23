@@ -1,0 +1,133 @@
+.backdrop {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+
+    img {
+        height: 195px;
+    }
+}
+
+.poster-rating {
+    display: flex;
+    position: relative;
+    height: 200px;
+    margin-top: 130px;
+
+    .poster {
+        width: 180px;
+        height: 200px;
+        margin-top: 0px;
+        margin-left: 15px;
+
+        img {
+            height: 198px;
+        }
+    }
+
+    .rating-votes {
+        width: 100%;
+        height: 130px;
+        margin-top: 70px;
+
+        .rating {
+            display: flex;
+            height: 130px;
+            align-items: center;
+
+            .info {
+                display: flex;
+                width: 100%;
+                margin-top: -70px;
+
+                .like {
+                    width: 30px;
+                    height: 25px;
+                    margin-top: 10px;
+                    margin-left: 20px;
+                    color: #337ef8;
+                    font-size: 5px;
+                }
+
+                .name {
+                    margin-top: 15px;
+                    margin-left: 15px;
+                }
+
+                .numeros {
+                    margin-left: 40px;
+                }
+            }
+        }
+
+        .votes {
+            width: 100%;
+            height: 50px;
+            margin-top: -60px;
+
+            .info {
+                display: flex;
+                width: 100%;
+                margin-top: 0px;
+
+                .people {
+                    width: 30px;
+                    height: 25px;
+                    margin-top: 10px;
+                    margin-left: 20px;
+                    color: #337ef8;
+                    font-size: 15px;
+                }
+
+                .name {
+                    margin-top: 15px;
+                    margin-left: 15px;
+                }
+
+                .numeros {
+                    margin-left: 45px;
+                }
+            }
+
+        }
+    }
+}
+
+.overview {
+    font-size: 13px;
+    text-align: justify;
+    margin: 10px;
+}
+
+.genres {
+    margin: 15px;
+}
+
+.contenedor {
+    border: 1px solid white;
+    width: 100%;
+    
+    .actor {
+        //width: 100%;
+        border: 1px solid green;
+        margin: 0px;
+    
+        .slide {
+            border: 1px solid yellow;
+            max-width: 600px;
+        }
+    
+        .card {
+            border: 1px solid pink;
+            max-width: 600px;
+            height: 400px;
+            img {
+                max-width: 500px;
+                height: 200px;
+            }
+            .texto {
+                font-size: 10px;
+            }
+        }
+    }
+}
