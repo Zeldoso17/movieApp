@@ -15,12 +15,19 @@ export class MovieDetailPage implements OnInit {
   ratingMovie = '';
   infoMovie = {};
   cast = [];
+  similarMovies = [];
 
   moviesSlideOpt = {
     freeMode: true,
+    slidesPerView: 1.5,
+    slidesOffsetBefore: 11,
+  };
+
+  moviesSlideOptSimilar = {
+    freeMode: true,
     slidesPerView: 3.5,
     slidesOffsetBefore: 11,
-    spaceBetween: 50
+    spaceBetween: 10
   };
 
   constructor(private movieDetailService: MovieDetailService, private activatedRoute: ActivatedRoute) { }
@@ -29,6 +36,7 @@ export class MovieDetailPage implements OnInit {
     this.getParam();
     this.getinfoMovie();
     this.getActorsMovie();
+    this.getSimiarMovies();
   }
 
   getParam() {
@@ -52,6 +60,12 @@ export class MovieDetailPage implements OnInit {
   getActorsMovie() {
     this.movieDetailService.getActorsMovie(this.movieID).subscribe(data => {
       this.cast = data.cast;
+    });
+  }
+
+  getSimiarMovies() {
+    this.movieDetailService.getSimilarMovies(this.movieID).subscribe(data => {
+      this.similarMovies = data.results;
     });
   }
 

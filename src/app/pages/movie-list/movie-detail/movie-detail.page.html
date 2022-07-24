@@ -45,17 +45,46 @@
 
 
   <div class="contenedor">
+    <h4>Actores</h4>
     <ion-slides class="actor" [options]="moviesSlideOpt">
       <ion-slide class="slide" *ngFor="let actor of cast">
         <ion-card class="card">
-          <img src="https://image.tmdb.org/t/p/original{{actor.profile_path}}" alt="{{ actor.name }}">
+          <div *ngIf="actor.profile_path; else default">
+            <img src="https://image.tmdb.org/t/p/original{{actor.profile_path}}" alt="{{ actor.name }}">
+          </div>
           <ion-card-header class="texto">
-            <ion-card-subtitle class="sub">{{ actor.name }}</ion-card-subtitle>
-            <ion-card-title class="titulo">{{ actor.character }}</ion-card-title>
+            <ion-card-title class="titulo">{{ actor.name }}</ion-card-title>
+            <br>
+            <ion-card-subtitle class="sub">{{ actor.character }}</ion-card-subtitle>
           </ion-card-header>
         </ion-card>
       </ion-slide>
     </ion-slides>
   </div>
+
+  <ng-template #default>
+    <img src=".././../../../assets/images/defaultUser.png" alt="Imagen default">
+  </ng-template>
+
+  <div class="contenedorSimilares">
+    <h4>Películas Similares</h4>
+    <ion-slides class="slides" [options]="moviesSlideOptSimilar">
+      <ion-slide *ngFor="let movieSimilar of similarMovies">
+        <div class="contenedorImagen">
+          <img class="imagen" src="https://image.tmdb.org/t/p/original{{movieSimilar.poster_path}}"
+            alt="{{ movieSimilar.title }}">
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="favorito">
+    <ion-icon class="star" name="star-outline"></ion-icon>
+    <span class="texto">Favorito</span>
+  </div>
+
+  <ng-template>
+    <ion-icon class="star" name="star"></ion-icon>
+  </ng-template>
 
 </ion-content>

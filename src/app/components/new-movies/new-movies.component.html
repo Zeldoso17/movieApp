@@ -3,12 +3,16 @@
   <ion-slides>
       <ion-slide *ngFor="let movie of newMovies">
           <div class="contenedor">
-              <div class="image">
+              <div class="image" *ngIf="movie.backdrop_path; else backdropDefault">
                   <img class="imagen" src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="{{ movie.title }}">
               </div>
               <div class="tituloMovie" [innerHTML]="movie.title"></div>
           </div>
       </ion-slide>
   </ion-slides>
+
+  <ng-template #backdropDefault>
+    <img class="imagen" src="../../../assets/images/backdrop.jpg" alt="Backdrop no disponible">
+  </ng-template>
 </ion-content>
 
