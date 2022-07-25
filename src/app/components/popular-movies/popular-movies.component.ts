@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopularMoviesComponent implements OnInit {
 
+  popularMoviesSlideOpt = {
+    freeMode: true,
+    slidesPerView: 3.5,
+    slidesOffsetBefore: 11,
+    spaceBetween: 10
+  };
+
   constructor() { }
 
   ngOnInit() {}
