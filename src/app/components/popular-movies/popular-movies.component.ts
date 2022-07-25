@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PopularMoviesService } from '../../services/popularMovies/popular-movies.service';
 
 @Component({
   selector: 'app-popular-movies',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopularMoviesComponent implements OnInit {
 
+  popularMovies = [];
+
   popularMoviesSlideOpt = {
     freeMode: true,
     slidesPerView: 3.5,
@@ -14,8 +17,16 @@ export class PopularMoviesComponent implements OnInit {
     spaceBetween: 10
   };
 
-  constructor() { }
+  constructor(private popularMoviesService: PopularMoviesService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getPopularMovies();
+  }
+
+  getPopularMovies(){
+    this.popularMoviesService.getPopularMovies().subscribe(data => {
+      this.popularMovies = data.results;
+    });
+  }
 
 }

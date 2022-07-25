@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>SearchMovie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h4>Buscar Pelicula</h4>
+  <ion-list class="item-content">
+    <ion-item>
+      <ion-icon name="search-outline"></ion-icon>
+      <ion-input type="text" class="input" [(ngModel)]="movieName" placeholder="placeholder"></ion-input>
+    </ion-item>
+  </ion-list>
+  <h5>Ideas</h5>
+  <div *ngIf="movies.length === 0; else movieList">
+    <ion-list class="item-content">
+      <ion-item>Spider-man</ion-item>
+      <ion-item>Avengers</ion-item>
+      <ion-item>El señor de los anillos</ion-item>
+      <ion-item>Toy story</ion-item>
+    </ion-list>
+  </div>
+  
+</ion-content>
+
+<ng-template #movieList>
+  Hola, esta es la lista de peliculas
+</ng-template>
