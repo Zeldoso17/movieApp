@@ -1,7 +1,16 @@
 .item-content {
     --ion-item-background: transparent;
 
+    button {
+        background-color: transparent;
+        font-size: 20px;
+    }
+
     .input {
         margin-left: 10px;
+    }
+
+    .info {
+        border: 1px solid red;
     }
   }

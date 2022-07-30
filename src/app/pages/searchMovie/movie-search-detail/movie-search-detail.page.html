@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text=""></ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title style="font-size: 16px;">{{ infoMovie.title }}</ion-title>
+    <ion-title>{{ infoMovie.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -65,15 +65,6 @@
     </ion-slides>
   </div>
 
-  <ng-template #default>
-    <img src=".././../../../assets/images/defaultUser.png" alt="Imagen default">
-  </ng-template>
-
-  <div class="favorito">
-    <ion-icon class="star" name="star-outline"></ion-icon>
-    <span class="texto">Favorito</span>
-  </div>
-
   <div class="contenedorSimilares">
     <h4>Películas Similares</h4>
     <ion-slides class="slides" [options]="moviesSlideOptSimilar">
@@ -85,6 +76,15 @@
       </ion-slide>
     </ion-slides>
   </div>
+
+  <div class="favorito">
+    <ion-icon class="star" name="star-outline"></ion-icon>
+    <span class="texto">Favorito</span>
+  </div>
+
+  <ng-template #default>
+    <img src=".././../../../assets/images/defaultUser.png" alt="Imagen default">
+  </ng-template>
 
   <ng-template>
     <ion-icon class="star" name="star"></ion-icon>

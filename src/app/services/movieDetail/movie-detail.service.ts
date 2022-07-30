@@ -32,5 +32,4 @@ export class MovieDetailService {
     this.url = `movie/${id}/similar?api_key=${environment.apiKey}&language=es-MX&page=1`;
     return this.http.get<any>(`${environment.url}${this.url}`);
   }
-
 }

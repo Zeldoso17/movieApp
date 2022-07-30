@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: SearchMoviePage
-  }
+  },
+  {
+    path: ':movieID',
+    loadChildren: () => import('../searchMovie/movie-search-detail/movie-search-detail.module').then( m => m.MovieSearchDetailPageModule)
+  },
 ];
 
 @NgModule({
