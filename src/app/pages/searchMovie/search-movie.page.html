@@ -11,7 +11,7 @@
       <button (click)="getMovies(movieName)">
         <ion-icon name="search-outline"></ion-icon>
       </button>
-      <ion-input type="text" class="input" [(ngModel)]="movieName" placeholder="placeholder"></ion-input>
+      <ion-input type="text" class="input" [(ngModel)]="movieName" placeholder="Ingresa el titulo"></ion-input>
     </ion-item>
   </ion-list>
   <div *ngIf="movies.length === 0; else movieList" class="info">

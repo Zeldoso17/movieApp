@@ -69,12 +69,7 @@
     <img src=".././../../../assets/images/defaultUser.png" alt="Imagen default">
   </ng-template>
 
-  <div class="favorito">
-    <ion-icon class="star" name="star-outline"></ion-icon>
-    <span class="texto">Favorito</span>
-  </div>
-
-  <div class="contenedorSimilares">
+  <div class="contenedorSimilares" *ngIf="similarMovies.length > 0">
     <h4>Películas Similares</h4>
     <ion-slides class="slides" [options]="moviesSlideOptSimilar">
       <ion-slide *ngFor="let movieSimilar of similarMovies">
@@ -85,9 +80,4 @@
       </ion-slide>
     </ion-slides>
   </div>
-
-  <ng-template>
-    <ion-icon class="star" name="star"></ion-icon>
-  </ng-template>
-
 </ion-content>

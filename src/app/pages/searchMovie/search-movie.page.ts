@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 import { SearchMoviesService } from '../../services/searchMovies/search-movies.service';
 
@@ -13,20 +14,30 @@ export class SearchMoviePage implements OnInit {
   movieName: string;
   movies = [];
 
-  constructor(private searchMovies: SearchMoviesService, private route: Router) { }
+  constructor(private searchMovies: SearchMoviesService, private route: Router, public alertCtrl: AlertController) { }
 
   ngOnInit() {
   }
 
-  getMovies() {
-    if(this.movieName !== undefined) {
+  async getMovies() {
+    if(this.movieName !== undefined && this.movieName !== '') {
       this.searchMovies.getMovies(this.movieName).subscribe(data => {
         this.movies = data.results;
         this.movies = this.movies.filter(movie => movie.poster_path !== null);
       });
     }else{
-      alert('Tienes que poner un titulo');
+      await this.alertNoTitle();
     }
+  }
+
+  async alertNoTitle(){
+    const alert = await this.alertCtrl.create({
+      header: 'Alerta',
+      subHeader: 'Campo título vacío',
+      message: 'Tienes que escribir un título para buscar',
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 
   openDetailMovie(id: number){

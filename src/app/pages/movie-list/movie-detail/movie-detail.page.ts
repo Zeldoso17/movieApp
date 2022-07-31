@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MovieDetailService } from '../../../services/movieDetail/movie-detail.service';
-import { HttpClient } from '@angular/common/http';
+import { InfoMovie } from '../../../interfaces/infoMovie/info-movie';
 
 @Component({
   selector: 'app-movie-detail',
@@ -16,6 +16,12 @@ export class MovieDetailPage implements OnInit {
   infoMovie = {};
   cast = [];
   similarMovies = [];
+  cambioIcono = false;
+  localData = [];
+  title: InfoMovie;
+
+  peliculasFav = [];
+  peliculas = [];
 
   moviesSlideOpt = {
     freeMode: true,
@@ -45,8 +51,8 @@ export class MovieDetailPage implements OnInit {
     });
   }
 
-  getinfoMovie() {
-    this.movieDetailService.getMovieDetail(this.movieID).subscribe(data => {
+  async getinfoMovie() {
+    await this.movieDetailService.getMovieDetail(this.movieID).subscribe(data => {
       this.infoMovie = data;
     });
   }
@@ -68,5 +74,4 @@ export class MovieDetailPage implements OnInit {
       this.similarMovies = data.results;
     });
   }
-
 }
