@@ -1,22 +1,10 @@
 <ion-content>
   <h4>Peliculas Populares</h4>
-  <ion-slides class="slides" [options]="popularMoviesSlideOpt">
-    <ion-slide *ngFor="let popularMovie of popularMovies; let i = index">
-      <ion-grid class="grid">
-        <!-- ARRIBA -->
-        <ion-row>
-          <ion-col size="12">
-            <img src="https://image.tmdb.org/t/p/original/{{popularMovies[i].poster_path}}" alt="">
-          </ion-col>
-        </ion-row>
-        <!-- ABAJO -->
-        <ion-row>
-          <ion-col size="12">
-            <img src="https://image.tmdb.org/t/p/original/{{popularMovies[i+1].poster_path}}" alt="">
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+  <ion-slides [options]="popularMoviesSlideOpt">
+    <ion-slide *ngFor="let popularMovie of popularMovies">
+        <div class="contenedor">
+            <img class="imagen" src="https://image.tmdb.org/t/p/original{{popularMovie.poster_path}}" alt="{{ popularMovie.title }}">
+        </div>
     </ion-slide>
-
-  </ion-slides>
+</ion-slides>
 </ion-content>

@@ -28,19 +28,11 @@
 
 <ng-template #movieList>
   <h5>Lista de películas</h5>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6" *ngFor="let movie of movies">
-        <div *ngIf="movie.poster_path">
-          <ion-card (click)="openDetailMovie(movie.id)" style="width: 95%;">
-            <img src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" alt="">
-            <ion-card-header>
-              <ion-card-subtitle>{{ movie.release_date }}</ion-card-subtitle>
-              <ion-card-title style="font-size: 15px" class="titulo">{{ movie.title }}</ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-card (click)="openDetailMovie(movie.id)" *ngFor="let movie of movies" style="width: 95%;">
+    <img style="width: 100%; height: 200px;" src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" alt="">
+    <ion-card-header>
+      <ion-card-subtitle>{{ movie.release_date }}</ion-card-subtitle>
+      <ion-card-title style="font-size: 18px" class="titulo">{{ movie.title }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 </ng-template>
